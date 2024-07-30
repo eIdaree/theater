@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/profile.css">
+    <link rel="stylesheet" href="../css/home.css">
+
+    <title>User Profile</title>
+</head>
+<body>
+    <nav style="display: flex; align-items:center; justify-content: space-between; ">
+        <a href="" style="margin-left: 3em;"><h1>Theater</h1></a>
+        <ul id="navbar" style="display: flex; list-style: none; align-items: center; margin-right: 2em;">
+            <li><a href="./home.html">Home</a></li>
+            <li><a href="./performances.html">Performances</a></li>
+            <li><a href="./actors.html">Actors</a></li>
+            <li id="user-status"></li>
+            <li><a href="#" id="logout">Log Out</a></li>
+        </ul>
+    </nav>
+    <div class="container">
+        <h1>User Profile</h1>
+        <div class="profile-info">
+            <p><strong>Username:</strong> <span id="username"></span></p>
+            <p><strong>Status:</strong> <span id="status"></span></p>
+            <p><strong>Email:</strong> <span id="email"></span></p>
+        </div>
+        <a href="./home.html" class="back">Go to Home</a>
+    </div>
+
+    <script src="../js/profile.js"></script>
+    <script src="../js/home.js"></script>
+</body>
+</html>

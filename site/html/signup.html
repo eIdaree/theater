@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/signin.css">
+
+    <title>Sign Up</title>
+</head>
+<body>
+    <h1>Sign Up</h1>
+    <form method="post" id="signup-form">
+        <label for="username">Username:</label><br>
+        <input type="text" id="username" name="username"><br>
+        <label for="password">Password:</label><br>
+        <input type="password" id="password" name="password"><br><br>
+        <span id="passwordError" class="error-message"></span><br><br>
+        <label for="email">Email</label><br>
+        <input type="email" name="email" id="email"><br><br>
+        <label for="status">Status:</label><br>
+        <select id="status" name="status">
+            <option value="Admin">Admin</option>
+            <option value="User">User</option>
+        </select><br><br>
+        <input type="submit" value="Sign Up">
+    </form>
+    
+    
+
+    <script>
+        const passwordInput = document.getElementById('password');
+        const passwordError = document.getElementById('passwordError');
+        document.addEventListener('DOMContentLoaded', function() {
+    document.getElementById('signup-form').addEventListener('submit', function(event) {
+        event.preventDefault(); 
+        const form = document.getElementById('signup-form');
+
+        const formData = new FormData(form);
+
+        console.log('Отправка данных:', formData);
+        fetch('http://127.0.0.1:3000/register', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(Object.fromEntries(formData))
+})
+
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Ошибка сети');
+            }
+            return response.json();
+        })
+        .then(data => {
+            alert(data.message); 
+            window.location.href = 'http://127.0.0.1:5500/site/html/home.html'; 
+        })
+        .catch(error => {
+            console.error('Ошибка:', error);
+        });
+    });
+});
+        passwordInput.addEventListener('blur', () => {
+            const password = passwordInput.value;
+            if (password.length < 8) {
+                passwordError.textContent = 'Password must be at least 8 characters long.';
+            } else {
+                passwordError.textContent = '';
+            }
+        });
+    </script>
+</body>
+</html>

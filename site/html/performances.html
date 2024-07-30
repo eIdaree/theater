@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Performances</title>
+    <link rel="stylesheet" href="../css/performances.css">
+    <link rel="stylesheet" href="../css/home.css">
+</head>
+<body>
+    <nav style="display: flex; align-items:center; justify-content: space-between;">
+        <a href="" style="margin-left: 3em;"><h1>Theater</h1></a>
+        <ul id="navbar" style="display: flex; list-style: none; align-items: center; margin-right: 2em;">
+            <li><a href="./home.html">Home</a></li>
+            <li><a href="./performances.html">Performances</a></li>
+            <li><a href="./actors.html">Actors</a></li>
+            <li id="user-status"></li>
+            <li><a href="#" id="logout">Log Out</a></li>
+        </ul>
+    </nav>
+    <h1>Performances</h1>
+    <input type="text" id="search" placeholder="Search by Play Title">
+    <button onclick="searchPerformances()">Search</button>
+    <table id="performances-table" border="1">
+        <thead>
+            <tr>
+                <th>Performance ID</th>
+                <th>Date</th>
+                <th>Start Time</th>
+                <th>End Time</th>
+                <th>Play</th>
+                <th>Theater</th>
+            </tr>
+        </thead>
+        <tbody></tbody>
+    </table>
+
+    <script src="../js/performances.js"></script>
+    <script src="../js/home.js"></script>
+</body>
+</html>

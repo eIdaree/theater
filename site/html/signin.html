@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/signin.css">
+    <title>Sign In</title>
+</head>
+<body>
+    
+    <h1>Sign In</h1>
+    <form id="signin-form" method="post">
+        <label for="username">Username:</label><br>
+        <input type="text" id="username" name="username"><br>
+        <label for="password">Password:</label><br>
+        <input type="password" id="password" name="password"><br><br>
+        <input type="submit" value="Sign In">
+    </form>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            document.getElementById('signin-form').addEventListener('submit', function(event) {
+                event.preventDefault(); 
+
+                const formData = new FormData(this);
+
+                fetch('http://127.0.0.1:3000/signin', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(Object.fromEntries(formData)),
+                    credentials: 'include' 
+                })
+
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error('Ошибка сети');
+                    }
+                    return response.json();
+                })
+                .then(data => {
+                    sessionStorage.setItem('username', data.username);
+                    alert(data.message); 
+                    window.location.href = 'http://127.0.0.1:5500/site/html/home.html';
+                })
+                .catch(error => {
+                    console.error('Ошибка:', error);
+                });
+            });
+        });
+    </script>
+</body>
+</html>

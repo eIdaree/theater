@@ -1,0 +1,70 @@
+body {
+    font-family: 'Roboto', sans-serif; /* Use Roboto font */
+    margin: 0;
+    padding: 0;
+    background-color: #f5f5f5;
+}
+
+nav {
+    background-color: #2c3e50;
+    color: #fff;
+    padding: 10px 0;
+}
+
+nav a,nav a h1 {
+    color: #fff;
+    text-decoration: none;
+}
+
+nav ul {
+    padding: 0;
+    margin: 0;
+    display: flex;
+    list-style: none;
+}
+
+nav ul li {
+    margin-right: 20px;
+}
+
+nav ul li:last-child {
+    margin-right: 0;
+}
+
+#user-status {
+    margin-left: 1em;
+}
+
+#logout {
+    display: none;
+}
+
+div {
+    padding: 20px;
+}
+
+/* Dark Chocolate and Seafoam Green Color Scheme */
+h1 {
+    color: hsl(210, 29%, 24%); /* Dark Chocolate */
+}
+
+
+
+#navbar a {
+    color: #fff; /* Dark Chocolate */
+}
+
+#user-status a {
+    color: #2adfcd;
+    font-size: 1.3rem;
+    font-weight: 700;
+    margin-left: -1em; /* Dark Chocolate */
+}
+
+#logout {
+    color: #2c3e50; /* Dark Chocolate */
+}
+
+#logout:hover {
+    text-decoration: underline;
+}
